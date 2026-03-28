@@ -8,9 +8,11 @@ if (isset($_POST['Submit'])) {
     $song_name = $_POST['song_name'];
     $artist = $_POST['artist'];
     $gerne = $_POST['gerne'];
+    $lyrics = $_POST['lyrics'];
+    $release_year = $_POST['release_year'];
     
-    // บันทึกลงตารางที่ฟิลด์ตรงกับ MySQL ของคุณ (song_name, artist, gerne)
-    $sql = "INSERT INTO tb_66010914018 (song_name, artist, gerne) VALUES ('$song_name', '$artist', '$gerne')";
+    // บันทึกลงตารางที่ฟิลด์ตรงกับ MySQL ทั้งหมด 5 ฟิลด์ที่เรากรอก
+    $sql = "INSERT INTO tb_66010914018 (song_name, artist, gerne, lyrics, release_year) VALUES ('$song_name', '$artist', '$gerne', '$lyrics', '$release_year')";
     if (mysqli_query($conn, $sql)) {
         echo "บันทึกข้อมูลสำเร็จ!<br><br>";
     } else {
@@ -22,22 +24,27 @@ if (isset($_POST['Submit'])) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>เพิ่มข้อมูล (form)</title>
+    <title>เพิ่มข้อมูลเพลงฮิตระดับพรีเมียม (form)</title>
     <!-- โหลดเฉพาะ Bootstrap CSS เพื่อนำมาใช้ทำปุ่มสีฟ้าตามข้อ 6 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <h2>เพิ่มข้อมูล</h2>
+    <h2>เพิ่มข้อมูลเพลงฮิต</h2>
     <!-- ข้อ 5: สร้างฟอร์ม Textbox, Textarea, Radio button, Submit button -->
-    <!-- ให้ชื่อตัวแปรตรงกับตาราง MySQL (song_name, artist, gerne) -->
     <form method="post" action="">
         Textbox (ชื่อเพลง / song_name): 
         <input type="text" name="song_name" required><br><br>
         
-        <!-- อาจารย์บังคับให้มี Textarea ในฟอร์ม จึงเอามาใช้รับค่า artist ถึงจะดูแปลกนิดนึงแต่ถูกต้องตามข้อสอบครับ -->
-        Textarea (ชื่อศิลปิน / artist): 
-        <textarea name="artist" required></textarea><br><br>
+        Textbox (ศิลปิน / artist): 
+        <input type="text" name="artist" required><br><br>
+
+        Textbox แบบตัวเลข (ปีที่ปล่อยเพลง / release_year): 
+        <input type="number" name="release_year" required><br><br>
+        
+        <!-- Textarea สำหรับเนื้อเพลง (lyrics) เอาไว้เก็บคะแนนข้อ 5 แบบเนียนๆ ไม่ฝืนธรรมชาติแล้ว! -->
+        Textarea (เนื้อเพลง, ท่อนฮุค / lyrics): <br>
+        <textarea name="lyrics" rows="3" cols="40" required></textarea><br><br>
         
         Radio button (แนวเพลง / gerne): 
         <input type="radio" name="gerne" value="ป็อป" required> ป็อป (Pop)
