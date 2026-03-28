@@ -5,13 +5,14 @@ mysqli_query($conn, "SET NAMES utf8");
 
 // บันทึกข้อมูลเมื่อกดปุ่ม (ข้อ 7)
 if (isset($_POST['Submit'])) {
-    $fullname = $_POST['fullname'];
-    $address = $_POST['address'];
-    $gender = $_POST['gender'];
+    $song_name = $_POST['song_name'];
+    $description = $_POST['description'];
+    $genre = $_POST['genre'];
     
-    $sql = "INSERT INTO tb_66010914018 (fullname, address, gender) VALUES ('$fullname', '$address', '$gender')";
+    // บันทึกลงตารางที่ฟิลด์ตรงกับเรื่องเพลงฮิต
+    $sql = "INSERT INTO tb_66010914018 (song_name, description, genre) VALUES ('$song_name', '$description', '$genre')";
     if (mysqli_query($conn, $sql)) {
-        echo "บันทึกข้อมูลสำเร็จ!<br><br>";
+        echo "บันทึกข้อมูลเพลงสำเร็จ!<br><br>";
     } else {
         echo "มีข้อผิดพลาด: " . mysqli_error($conn) . "<br><br>";
     }
@@ -21,26 +22,30 @@ if (isset($_POST['Submit'])) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>เพิ่มข้อมูล (form)</title>
+    <title>เพิ่มข้อมูลเพลงฮิต (form)</title>
     <!-- โหลดเฉพาะ Bootstrap CSS เพื่อนำมาใช้ทำปุ่มสีฟ้าตามข้อ 6 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
+    <h2>เพิ่มข้อมูลเพลงฮิต</h2>
     <!-- ข้อ 5: สร้างฟอร์ม Textbox, Textarea, Radio button, Submit button -->
+    <!-- ให้ชื่อตัวแปรตรงกับตาราง MySQL (song_name, description, genre) -->
     <form method="post" action="">
-        Textbox (ชื่อ-สกุล): 
-        <input type="text" name="fullname" required><br><br>
+        Textbox (ชื่อเพลง): 
+        <input type="text" name="song_name" required><br><br>
         
-        Textarea (ที่อยู่): 
-        <textarea name="address" required></textarea><br><br>
+        Textarea (รายละเอียด/ท่อนฮุค): 
+        <textarea name="description" required></textarea><br><br>
         
-        Radio button (เพศ): 
-        <input type="radio" name="gender" value="ชาย" required> ชาย
-        <input type="radio" name="gender" value="หญิง" required> หญิง<br><br>
+        Radio button (แนวเพลง): 
+        <input type="radio" name="genre" value="ป็อป" required> ป็อป (Pop)
+        <input type="radio" name="genre" value="ร็อค" required> ร็อค (Rock)
+        <input type="radio" name="genre" value="ฮิปฮอป" required> ฮิปฮอป (Hip Hop)
+        <input type="radio" name="genre" value="ลูกทุ่ง" required> ลูกทุ่ง<br><br>
         
         <!-- ข้อ 6: ตกแต่ง Submit button เป็นสีฟ้าด้วยคลาส btn btn-info ของ Bootstrap -->
-        <button type="submit" name="Submit" class="btn btn-info">บันทึกข้อมูล (Submit)</button>
+        <button type="submit" name="Submit" class="btn btn-info">บันทึกข้อมูลเพลง (Submit)</button>
     </form>
 
 </body>

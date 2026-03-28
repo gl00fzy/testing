@@ -2,18 +2,18 @@
 CREATE DATABASE IF NOT EXISTS 66010914018_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE 66010914018_db;
 
--- ข้อ 2: สร้างตาราง
+-- ข้อ 2: สร้างตารางเรื่อง "เพลงฮิต" ตามโจทย์ที่ได้รับมอบหมาย
 CREATE TABLE IF NOT EXISTS tb_66010914018 (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(100) NOT NULL,
-    address TEXT NOT NULL,
-    gender VARCHAR(10) NOT NULL
+    song_name VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    genre VARCHAR(50) NOT NULL
 );
 
--- ข้อ 3: เพิ่มข้อมูลตัวอย่าง 5 แถว
-INSERT INTO tb_66010914018 (fullname, address, gender) VALUES
-('สมชาย ใจดี', '123 ซอย 1 กรุงเทพฯ', 'ชาย'),
-('สมหญิง สุดสวย', '456 ซอย 2 เชียงใหม่', 'หญิง'),
-('John Doe', '789 Main St, London', 'ชาย'),
-('Jane Smith', '321 Elm St, New York', 'หญิง'),
-('มานี มีนา', '111 หมู่บ้านเสรี ขอนแก่น', 'หญิง');
+-- ข้อ 3: เพิ่มข้อมูลตัวอย่าง 5 แถว (ข้อมูลเพลงฮิต)
+INSERT INTO tb_66010914018 (song_name, description, genre) VALUES
+('ผู้ถูกเลือกให้ผิดหวัง (ดอกไม้ฤดูหนาว)', 'เพลงเศร้าอกหักสุดฮิตจาก เรนิษรา', 'ป็อป'),
+('เลือดกรุ๊ปบี', 'เพลงฮิตไวรัลที่เนื้อหาโดนใจคนโสด', 'ป็อป'),
+('ทรงอย่างแบด (Bad Boy)', 'เพลงร็อคขวัญใจวัยรุ่นฟันน้ำนม', 'ร็อค'),
+('สลักจิต', 'เพลงฮิตตลอดกาลจาก ป๊อบ ปองกูล', 'ป็อป'),
+('ธาตุทองซาวด์', 'เพลงแร็ปจังหวะมันส์ๆ โดนใจวัยรุ่น', 'ฮิปฮอป');
