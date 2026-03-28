@@ -33,20 +33,20 @@ if (isset($_POST['Submit'])) {
     <h2>เพิ่มข้อมูลเพลงฮิต</h2>
     <!-- ข้อ 5: สร้างฟอร์ม Textbox, Textarea, Radio button, Submit button -->
     <form method="post" action="">
-        Textbox (ชื่อเพลง / song_name): 
+        (ชื่อเพลง / song_name): 
         <input type="text" name="song_name" required><br><br>
         
-        Textbox (ศิลปิน / artist): 
+        (ศิลปิน / artist): 
         <input type="text" name="artist" required><br><br>
 
-        Textbox แบบตัวเลข (ปีที่ปล่อยเพลง / release_year): 
+        (ปีที่ปล่อยเพลง / release_year): 
         <input type="number" name="release_year" required><br><br>
         
         <!-- Textarea สำหรับเนื้อเพลง (lyrics) เอาไว้เก็บคะแนนข้อ 5 แบบเนียนๆ ไม่ฝืนธรรมชาติแล้ว! -->
-        Textarea (เนื้อเพลง, ท่อนฮุค / lyrics): <br>
+        (เนื้อเพลง, ท่อนฮุค / lyrics): <br>
         <textarea name="lyrics" rows="3" cols="40" required></textarea><br><br>
         
-        Radio button (แนวเพลง / gerne): 
+        (แนวเพลง / gerne): 
         <input type="radio" name="gerne" value="ป็อป" required> ป็อป (Pop)
         <input type="radio" name="gerne" value="ร็อค" required> ร็อค (Rock)
         <input type="radio" name="gerne" value="ฮิปฮอป" required> ฮิปฮอป (Hip Hop)
